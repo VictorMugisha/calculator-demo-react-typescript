@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 export interface ScreenContextType {
-    screenValue: string;
-    setScreenValue: (prevState?: string) => string
+    screenValue: number;
+    setScreenValue: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const ScreenContext = createContext<ScreenContextType | undefined>(undefined)
