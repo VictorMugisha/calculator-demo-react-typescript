@@ -1,11 +1,11 @@
 import './App.css'
+import Layout from './components/Layout'
 
 function App() {
   return (
-    <>
-      <h2 className="text-[4rem]">Hello World!</h2>
-
-    </>
+    <main className="w-full flex flex-col md:max-w-lg md:mx-auto mt-6">
+      <Layout />
+    </main>
   )
 }
 
