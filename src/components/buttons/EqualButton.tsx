@@ -4,7 +4,7 @@ import { useScreenContext } from "../../hooks/useScreenContext"
 export default function EqualButton() {
     const screenContext = useScreenContext()
 
-    const { expression } = useCalculationContext()
+    const { expression, setExpression } = useCalculationContext()
     const { firstOperand, operation, secondOperand } = expression
 
     function handleEqualButtonClick() {
@@ -14,6 +14,12 @@ export default function EqualButton() {
 
         const realExpression = firstOperand + operation + secondOperand
         const result = eval(realExpression)
+
+        setExpression({
+            firstOperand: 0,
+            operation: "",
+            secondOperand: 0
+        })
         screenContext.setScreenValue(result)
     }
 
