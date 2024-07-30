@@ -10,7 +10,7 @@ export default function NumberButton({ value, customStyles }: NumberButtonProps)
   function handleNumberButtonClick() {
     if (screenContext.screenValue === 0) {
       screenContext.setScreenValue(value)
-    } else if(screenContext.screenValue.toString().length < 9) {
+    } else if(screenContext.screenValue.toString().length < 12) {
       screenContext.setScreenValue(prevValue => {
         return parseInt(prevValue.toString() + value)
       })

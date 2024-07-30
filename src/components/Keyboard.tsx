@@ -7,9 +7,9 @@ import SpecialFunctionButton from "./buttons/SpecialFunctionButton";
 export default function Keyboard() {
     return (
         <div className="grid grid-cols-4 gap-[1px] bg-gray-700">
-            <SpecialFunctionButton symbol="AC" />
-            <SpecialFunctionButton symbol="+/-" />
-            <SpecialFunctionButton symbol="%" />
+            <SpecialFunctionButton symbol="AC" operation="reset" />
+            <SpecialFunctionButton symbol="+/-" operation="negation" />
+            <SpecialFunctionButton symbol="%" operation="modulus" />
             <OperatorButton operatorSymbol="÷" />
             <NumberButton value={7} />
             <NumberButton value={8} />
