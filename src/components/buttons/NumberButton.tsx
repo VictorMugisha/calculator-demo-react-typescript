@@ -25,9 +25,16 @@ export default function NumberButton({ value, customStyles }: NumberButtonProps)
 
   useEffect(() => {
     calculationContext.setExpression(expression => {
-      return {
-        ...expression,
-        firstOperand: screenContext.screenValue
+      if (expression.operation !== "") {
+        return {
+          ...expression,
+          secondOperand: screenContext.screenValue
+        }
+      } else {
+        return {
+          ...expression,
+          firstOperand: screenContext.screenValue
+        }
       }
     })
   }, [screenContext.screenValue])
