@@ -15,7 +15,7 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
 
     switch (operatorSymbol) {
       case "+":
-        screenContext.setScreenValue(0)
+        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -24,7 +24,7 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "-":
-        screenContext.setScreenValue(0)
+        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -33,7 +33,7 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "x":
-        screenContext.setScreenValue(0)
+        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -42,7 +42,7 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "÷":
-        screenContext.setScreenValue(0)
+        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,

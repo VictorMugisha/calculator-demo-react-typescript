@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCalculationContext } from "../../hooks/useCalculationContext";
 import { useScreenContext } from "../../hooks/useScreenContext";
 
@@ -11,15 +11,34 @@ export default function NumberButton({ value, customStyles }: NumberButtonProps)
   const screenContext = useScreenContext()
   const calculationContext = useCalculationContext()
 
+  const [isFirstStroke, setIsFirstStroke] = useState(false)
+
   function handleNumberButtonClick() {
-    if (screenContext.screenValue === 0) {
-      screenContext.setScreenValue(value)
-    } else if (screenContext.screenValue.toString().length < 12) {
-      screenContext.setScreenValue(prevValue => {
-        return parseInt(prevValue.toString() + value)
-      })
+
+    if (calculationContext.expression.operation !== "") {
+      if (calculationContext.expression.secondOperand === 0) {
+        calculationContext.setExpression(prevState => {
+          return {
+            ...prevState,
+            secondOperand: value
+          }
+        })
+        setIsFirstStroke(true)
+      }
+
+      if (!isFirstStroke) {
+        screenContext.setScreenValue(parseInt(`${calculationContext.expression.secondOperand}${value}`))
+      }
     } else {
-      return
+      if (screenContext.screenValue === 0) {
+        screenContext.setScreenValue(value)
+      } else if (screenContext.screenValue.toString().length < 12) {
+        screenContext.setScreenValue(prevValue => {
+          return parseInt(prevValue.toString() + value)
+        })
+      } else {
+        return
+      }
     }
   }
 
