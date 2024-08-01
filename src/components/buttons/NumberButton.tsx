@@ -11,6 +11,7 @@ export default function NumberButton({ value, customStyles }: NumberButtonProps)
   const screenContext = useScreenContext()
   const calculationContext = useCalculationContext()
 
+  // State to detect whether or not it is the first stroke after pressing any operation button
   const [isFirstStroke, setIsFirstStroke] = useState(false)
 
   function handleNumberButtonClick() {

@@ -1,4 +1,3 @@
-import { useCalculationContext } from "../../hooks/useCalculationContext";
 import { useScreenContext } from "../../hooks/useScreenContext";
 
 type SpecialFunctionButtonProps = {
@@ -8,18 +7,11 @@ type SpecialFunctionButtonProps = {
 
 export default function SpecialFunctionButton({ symbol, operation }: SpecialFunctionButtonProps) {
   const screenContext = useScreenContext()
-  const calculationContext = useCalculationContext()
 
   function handleSpecialButtonClick() {
     switch (operation) {
       case "modulus":
-        screenContext.setScreenValue(0)
-        calculationContext.setExpression(expresison => {
-          return {
-            ...expresison,
-            operation: "%"
-          }
-        })
+        screenContext.setScreenValue(currentValue => currentValue * (1/100))
         break
       case "negation":
         screenContext.setScreenValue(screenValue => {

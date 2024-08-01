@@ -1,5 +1,4 @@
 import { useCalculationContext } from "../../hooks/useCalculationContext";
-import { useScreenContext } from "../../hooks/useScreenContext";
 
 type OperatorButtonProps = {
   operatorSymbol: "÷" | "x" | "-" | "+";
@@ -8,14 +7,12 @@ type OperatorButtonProps = {
 export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) {
 
   const calculationContext = useCalculationContext()
-  const screenContext = useScreenContext()
 
 
   function handleOperatorButtonClick() {
 
     switch (operatorSymbol) {
       case "+":
-        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -24,7 +21,6 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "-":
-        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -33,7 +29,6 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "x":
-        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
@@ -42,7 +37,6 @@ export default function OperatorButton({ operatorSymbol }: OperatorButtonProps) 
         })
         break
       case "÷":
-        console.log(screenContext);
         calculationContext.setExpression(expresison => {
           return {
             ...expresison,
